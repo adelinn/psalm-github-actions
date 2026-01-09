@@ -47,7 +47,13 @@ inputs:
     description: The PHP version to run Psalm against
     required: false
     default: ''
+  psalm_version:
+    description: 'Psalm Docker image version'
+    required: false
+    default: 'latest'
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - PSALM_IMG_VERSION=${{ inputs.psalm_version }}
